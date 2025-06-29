@@ -90,11 +90,20 @@
             <!-- Dark Mode Toggle & Mobile Hamburger Button -->
             <div class="flex items-center">
                 <!-- Dark Mode Toggle -->
-                <button id="themeToggle"
-                    class="ml-4 bg-gray-700 dark:bg-blue-600 text-white px-3 py-1 rounded-lg hover:bg-gray-600 ">Toggle
-                    Theme</button>
-        
-        
+                <div class="relative group inline-block">
+                    <!-- Toggle Button -->
+                    <button id="themeToggle"
+                        class="ml-4 bg-gray-700 dark:bg-blue-600 text-white px-3 py-1 rounded-lg hover:bg-gray-600">
+                        Toggle Theme
+                    </button>
+                
+                    <!-- Tooltip -->
+                    <div
+                        class="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm rounded py-1 px-2 w-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        At the moment not working, to changes the theme is to change your system mode to light/dark
+                    </div>
+                </div>
+
                 <!-- Mobile Hamburger -->
                 <button id="menuToggle" class="md:hidden flex flex-col space-y-1 ml-4">
                     <span class="block w-6 h-0.5 bg-white"></span>
