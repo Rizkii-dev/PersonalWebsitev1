@@ -90,7 +90,7 @@
             <!-- Dark Mode Toggle & Mobile Hamburger Button -->
             <div class="flex items-center">
                 <!-- Dark Mode Toggle -->
-                <div class="relative group inline-block">
+                <div class="relative inline-block">
                     <!-- Toggle Button -->
                     <button id="themeToggle"
                         class="ml-4 bg-gray-700 dark:bg-blue-600 text-white px-3 py-1 rounded-lg hover:bg-gray-600">
@@ -98,8 +98,8 @@
                     </button>
                 
                     <!-- Tooltip -->
-                    <div
-                        class="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm rounded py-1 px-2 w-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div id="tooltip"
+                        class="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm rounded py-1 px-2 w-48 opacity-0 pointer-events-none transition-opacity duration-300">
                         At the moment not working, to changes the theme is to change your system mode to light/dark
                     </div>
                 </div>
@@ -373,6 +373,20 @@
         toggle.addEventListener('click', () => {
             const isDark = document.documentElement.classList.toggle('dark');
             localStorage.theme = isDark ? 'dark' : 'light';
+        });
+
+        const themeToggle = document.getElementById('themeToggle');
+        const tooltip = document.getElementById('tooltip');
+
+        themeToggle.addEventListener('click', () => {
+            tooltip.classList.toggle('opacity-0');
+            tooltip.classList.toggle('opacity-100');
+            tooltip.classList.toggle('pointer-events-none'); // Prevent ghost clicks
+
+            setTimeout(() => {
+                tooltip.classList.add('opacity-0', 'pointer-events-none');
+                tooltip.classList.remove('opacity-100');
+                }, 2000);
         });
 
         // Your carousel skills array and logic
